@@ -1,0 +1,19 @@
+{
+  "name": "Knowing Jesus",
+  "short_name": "Knowing Jesus",
+  "description": "A guided learning journey through Christian beliefs about Jesus, faith, prayer, church, and baptism.",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7fbfd",
+  "theme_color": "#17324d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
