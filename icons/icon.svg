@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Knowing Jesus icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17324d"/>
+      <stop offset="1" stop-color="#2f7893"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4d98f"/>
+      <stop offset="1" stop-color="#d7a944"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="400" cy="105" r="84" fill="#ffffff" opacity=".05"/>
+  <path d="M256 90v217M181 164h150" stroke="#fffdf9" stroke-width="30" stroke-linecap="round"/>
+  <path d="M132 432c34-76 74-115 124-115s90 39 124 115" fill="none" stroke="url(#path)" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="256" cy="350" r="15" fill="#fffdf9"/>
+</svg>
