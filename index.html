@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#17324d" />
+  <meta name="description" content="A guided Christian learning journey about Jesus, faith, and baptism." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Knowing Jesus" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <title>Knowing Jesus</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button" id="backButton" type="button" aria-label="Go back" hidden>←</button>
+      <button class="brand" id="homeButton" type="button" aria-label="Go to home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>
+          <strong>Knowing Jesus</strong>
+          <small>A journey of questions, Scripture &amp; reflection</small>
+        </span>
+      </button>
+      <button class="icon-button" id="questionsButton" type="button" aria-label="Open Question Box">?</button>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <nav class="bottom-nav" aria-label="Primary navigation">
+      <button type="button" data-route="#/" class="nav-item">
+        <span aria-hidden="true">⌂</span>
+        <span>Journey</span>
+      </button>
+      <button type="button" data-route="#/questions" class="nav-item">
+        <span aria-hidden="true">?</span>
+        <span>Questions</span>
+      </button>
+      <button type="button" data-route="#/baptism" class="nav-item">
+        <span aria-hidden="true">💧</span>
+        <span>Baptism</span>
+      </button>
+    </nav>
+  </div>
+
+  <noscript>This app needs JavaScript enabled.</noscript>
+  <script src="lessons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
