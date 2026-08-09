@@ -1,9 +1,10 @@
-const CACHE = "knowing-jesus-v1";
+const CACHE = "knowing-jesus-v2";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./lessons.js",
+  "./app-fixes.js",
   "./app.js",
   "./manifest.webmanifest",
   "./icons/icon.svg"
