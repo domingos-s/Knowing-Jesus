@@ -1,0 +1,56 @@
+name: Build Small Group Journal APK
+
+on:
+  push:
+    branches: [ build-small-group-journal ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct Android source
+        shell: bash
+        run: |
+          cat build-src.part00 build-src.part01 build-src.part02 build-src.part03 build-src.part04 > build-src.zip.b64
+          echo "8953790f37d8872a976a0225e11ae6c7538739d9de277b41dbfa14d833f25b63  build-src.zip.b64" | sha256sum -c -
+          base64 -d build-src.zip.b64 > build-src.zip
+          echo "e2da3568ff58e19dffa67e8bc9ff96f8e61df917c5de7af52016dd4c63057015  build-src.zip" | sha256sum -c -
+          unzip -q build-src.zip
+          base64 -d build-assets/icon.png.b64 > app/src/main/res/drawable/icon.png
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+
+      - name: Build signed APK
+        run: gradle --no-daemon :app:assembleDebug
+
+      - name: Verify APK signature
+        shell: bash
+        run: |
+          APK=app/build/outputs/apk/debug/app-debug.apk
+          test -s "$APK"
+          APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
+          test -n "$APKSIGNER"
+          "$APKSIGNER" verify --verbose "$APK"
+          cp "$APK" Small-Group-Journal.apk
+          sha256sum Small-Group-Journal.apk > Small-Group-Journal.apk.sha256
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: small-group-journal-apk
+          path: |
+            Small-Group-Journal.apk
+            Small-Group-Journal.apk.sha256
+          if-no-files-found: error
+          retention-days: 7
